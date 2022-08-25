@@ -43,6 +43,7 @@ export const Log = () => (
     colorScheme="red"
     onClick={() => {
       console.log("Button clicked");
+      console.log("used in release check");
     }}
   >
     Danger
