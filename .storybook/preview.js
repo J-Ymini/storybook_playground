@@ -1,8 +1,12 @@
 // The preview.js configuration file allows users to control how the story renders in the UI. (스토리북 UI 내에서의 config 설정)
 
 import { ThemeProvider, theme, CSSReset, Box } from "@chakra-ui/react";
-import { addDecorator } from "@storybook/react";
+import { addDecorator, addParameters } from "@storybook/react";
 import Center from "../src/components/Center";
+import { withConsole } from "@storybook/addon-console";
+import { withKnobs } from "@storybook/addon-knobs";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { withA11y } from "@storybook/addon-a11y";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -17,6 +21,11 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+
+  // viewport config
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
   },
 };
 
@@ -37,3 +46,9 @@ export const decorators = [
     </ThemeProvider>
   ),
 ];
+
+// addon console description
+addDecorator((storyFn, context) => withConsole()(storyFn)(context));
+
+// addon knobs
+addDecorator(withKnobs);

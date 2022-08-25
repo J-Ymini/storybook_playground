@@ -3,6 +3,10 @@ import STORIES_NAME from "../STORIES_NAME";
 
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
+import { action, actions } from "@storybook/addon-actions";
+
+import { text, boolean } from "@storybook/addon-knobs";
+
 export default {
   title: `${STORIES_NAME.FORM}/ChakraButton`,
   component: Button,
@@ -23,8 +27,33 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-export const Success = () => <Button colorScheme="green">Success</Button>;
-export const Danger = () => <Button colorScheme="red">Danger</Button>;
+export const Success = () => (
+  <Button colorScheme="green" onClick={action("Click")}>
+    Success
+  </Button>
+);
+export const Danger = () => (
+  <Button colorScheme="red" {...actions("onClick", "onMouseOver")}>
+    Danger
+  </Button>
+);
+
+export const Log = () => (
+  <Button
+    colorScheme="red"
+    onClick={() => {
+      console.log("Button clicked");
+    }}
+  >
+    Danger
+  </Button>
+);
+
+export const Knobs = () => (
+  <Button disabled={boolean("Disabled", false)} colorScheme="purple">
+    {text("Knobs", "Button Knobs2")}
+  </Button>
+);
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
