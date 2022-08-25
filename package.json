@@ -28,7 +28,8 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build:storybook": "build-storybook -s public",
     "lint:init": "npx eslint --init",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "chromatic": "npx chromatic --project-token=888146920d73"
   },
   "eslintConfig": {
     "extends": [
@@ -77,11 +78,14 @@
     "@typescript-eslint/eslint-plugin": "^5.34.0",
     "@typescript-eslint/parser": "^5.34.0",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.7.4",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "prop-types": "^15.8.1",
     "webpack": "^5.74.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "react_storybook@0.1.0"
 }
